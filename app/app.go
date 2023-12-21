@@ -14,18 +14,26 @@ func Generate() *cli.App {
 	app.Name = "WebInspect"
 	app.Usage = "Searches for a website IP address and server name"
 	
+	flags := []cli.Flag{
+		cli.StringFlag{
+			Name: "host",
+			Value: "google.com.br",
+		},
+	}
+
+	
 	app.Commands = []cli.Command{
 		{
 			Name: "ip",
 			Usage: "Search IP address",
-			Flags: []cli.Flag{
-				cli.StringFlag{
-					Name: "host",
-					Value: "google.com.br",
-				},
-			},
+			Flags: flags,			
 			Action: searchIps,
-
+		},
+		{
+			Name: "servers",
+			Usage: "Search server names",
+			Flags: flags,
+			Action: searchServers,
 		},
 	}
 
@@ -42,5 +50,18 @@ func searchIps(c *cli.Context) {
 	
 	for _, ip := range ips {
 		fmt.Println(ip)
+	}
+}
+
+func searchServers(c *cli.Context) {
+	host := c.String("host")
+	
+	servers, err := net.LookupNS(host)
+	if err != nil {
+		log.Fatal(err)
+	}
+	
+	for _, server := range servers {
+		fmt.Println(server.Host)
 	}
 }
