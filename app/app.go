@@ -5,7 +5,7 @@ import (
 	"log"
 	"net"
 
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 )
 
 // Returns the CLI App ready to be executed
@@ -14,25 +14,25 @@ func Generate() *cli.App {
 	app.Name = "WebInspect"
 	app.Usage = "Searches for a website IP address and server name"
 	
-	flags := []cli.Flag{
-		cli.StringFlag{
+	app.Flags = []cli.Flag{
+		&cli.StringFlag{
 			Name: "host",
 			Value: "google.com.br",
 		},
 	}
 
 	
-	app.Commands = []cli.Command{
+	app.Commands = []*cli.Command{
 		{
 			Name: "ip",
 			Usage: "Search IP address",
-			Flags: flags,			
+			Flags: app.Flags,			
 			Action: searchIps,
 		},
 		{
 			Name: "servers",
 			Usage: "Search server names",
-			Flags: flags,
+			Flags: app.Flags,
 			Action: searchServers,
 		},
 	}
@@ -40,7 +40,7 @@ func Generate() *cli.App {
 	return app
 }
 
-func searchIps(c *cli.Context) {
+func searchIps(c *cli.Context) error {
 	host := c.String("host")
 	
 	ips, err := net.LookupIP(host)
@@ -51,9 +51,10 @@ func searchIps(c *cli.Context) {
 	for _, ip := range ips {
 		fmt.Println(ip)
 	}
+	return nil
 }
 
-func searchServers(c *cli.Context) {
+func searchServers(c *cli.Context) error {
 	host := c.String("host")
 	
 	servers, err := net.LookupNS(host)
@@ -64,4 +65,5 @@ func searchServers(c *cli.Context) {
 	for _, server := range servers {
 		fmt.Println(server.Host)
 	}
+	return nil
 }
