@@ -8,7 +8,7 @@ import (
 func Generate() *cli.App {
 	app := cli.NewApp()
 	app.Name = "WebInspect"
-	app.Usage = "Searches for a website IP address and server name"
+	app.Usage = "Tool that provides informations about websites"
 	
 	app.Commands = []*cli.Command{
 		{

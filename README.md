@@ -1,5 +1,5 @@
 # WebInspect
-CLI App to search public IP addresses and server names from websites
+Tool that provides informations about websites
 
 ## How to use:
 ### Clone this repo
@@ -9,6 +9,18 @@ CLI App to search public IP addresses and server names from websites
 ### Create binary file
 - `go build`
 ### Search IPs
-- `./webinspect ip --host example.com`
+- Flags: 
+    - `--domain`, `--d`
+- Example:
+    - `./webinspect ip --d example.com`
 ### Search server names
-- `./webinspect servers --host example.com`
+- Flags: 
+    - `--domain`, `--d`
+- Example:
+    - `./webinspect servers --d example.com`
+### Check server health
+- Flags:
+    - `--domain`, `--d`
+    - `--port`, `--p` (optional)
+- Example:
+    - `./webinspect health --d example.com --p 80`
