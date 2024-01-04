@@ -9,9 +9,9 @@ import (
 )
 
 func SearchIps(c *cli.Context) error {
-	domain := c.String("domain")
+	host := c.String("host")
 	
-	ips, err := net.LookupIP(domain)
+	ips, err := net.LookupIP(host)
 	if err != nil {
 		log.Fatal(err)
 	}
