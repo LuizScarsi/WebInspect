@@ -17,7 +17,7 @@ func Generate() *cli.App {
 			Flags: []cli.Flag{
 				&cli.StringFlag{
 					Name: "host",
-					Usage: "Specify the host for IP seach",
+					Usage: "Specify the host for IP search",
 					Required: true,
 				},
 			},
@@ -30,6 +30,7 @@ func Generate() *cli.App {
 				&cli.StringFlag{
 					Name: "domain",
 					Aliases: []string{"d"},
+					Usage: "Specify the domain name for server name search",
 					Required: true,
 				},
 			},
@@ -41,11 +42,13 @@ func Generate() *cli.App {
 			Flags: []cli.Flag{
 				&cli.StringFlag{
 					Name: "port",
+					Usage: "Specify port to be checked",
 					Aliases: []string{"p"},
 				},
 				&cli.StringFlag{
 					Name: "domain",
 					Aliases: []string{"d"},
+					Usage: "Specify the domain name for health check",
 					Required: true,
 				},
 			},
