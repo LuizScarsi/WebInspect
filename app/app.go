@@ -18,6 +18,7 @@ func Generate() *cli.App {
 				&cli.StringFlag{
 					Name: "host",
 					Usage: "Specify the host for IP seach",
+					Required: true,
 				},
 			},
 			Action: SearchIps,
@@ -29,6 +30,7 @@ func Generate() *cli.App {
 				&cli.StringFlag{
 					Name: "domain",
 					Aliases: []string{"d"},
+					Required: true,
 				},
 			},
 			Action: SearchServers,
@@ -44,6 +46,7 @@ func Generate() *cli.App {
 				&cli.StringFlag{
 					Name: "domain",
 					Aliases: []string{"d"},
+					Required: true,
 				},
 			},
 			Action: HealthCheck,
