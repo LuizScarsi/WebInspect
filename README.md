@@ -10,9 +10,9 @@ Tool that provides informations about websites
 - `go build`
 ### Search IPs
 - Flags: 
-    - `--domain`, `--d`
+    - `--host`
 - Example:
-    - `./webinspect ip --d example.com`
+    - `./webinspect ip --host example.com`
 ### Search server names
 - Flags: 
     - `--domain`, `--d`
