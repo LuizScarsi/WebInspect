@@ -4,7 +4,7 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-// Returns the CLI App ready to be executed
+// Generate returns the CLI App ready to be executed
 func Generate() *cli.App {
 	app := cli.NewApp()
 	app.Name = "WebInspect"

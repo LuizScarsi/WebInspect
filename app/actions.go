@@ -8,6 +8,7 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
+// SearchIps prints given host's IPv4 and IPv6 addresses
 func SearchIps(c *cli.Context) error {
 	host := c.String("host")
 	
@@ -22,6 +23,7 @@ func SearchIps(c *cli.Context) error {
 	return nil
 }
 
+// SearchServers prints server names for the given domain name
 func SearchServers(c *cli.Context) error {
 	domain := c.String("domain")
 	
@@ -36,6 +38,7 @@ func SearchServers(c *cli.Context) error {
 	return nil
 }
 
+// HealthCheck prints the connection status with the given destination
 func HealthCheck(c *cli.Context) error {
 	port := c.String("port")
 	if port == "" {
