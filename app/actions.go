@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"webinspect/network"
 
 	"github.com/urfave/cli/v2"
 )
@@ -45,7 +46,7 @@ func HealthCheck(c *cli.Context) error {
 		port = "80"
 	}
 	
-	status := Check(c.String("domain"), port)
+	status := network.Check(c.String("domain"), port)
 	fmt.Println(status)
 	return nil
 }

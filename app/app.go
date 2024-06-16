@@ -17,6 +17,7 @@ func Generate() *cli.App {
 			Flags: []cli.Flag{
 				&cli.StringFlag{
 					Name: "host",
+					Aliases: []string{"h"},
 					Usage: "Specify the host for IP search",
 					Required: true,
 				},
