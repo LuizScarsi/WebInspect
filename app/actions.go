@@ -24,6 +24,20 @@ func SearchIps(c *cli.Context) error {
 	return nil
 }
 
+func SearchDNSTxt(c *cli.Context) error {
+	domain := c.String("domain")
+
+	txts, err := net.LookupTXT(domain)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, txt := range txts {
+		fmt.Println(txt)
+	}
+	return nil
+}
+
 // SearchServers prints server names for the given domain name
 func SearchServers(c *cli.Context) error {
 	domain := c.String("domain")

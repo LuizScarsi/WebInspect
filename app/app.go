@@ -17,12 +17,25 @@ func Generate() *cli.App {
 			Flags: []cli.Flag{
 				&cli.StringFlag{
 					Name: "host",
-					Aliases: []string{"h"},
+					Aliases: []string{"n"},
 					Usage: "Specify the host for IP search",
 					Required: true,
 				},
 			},
 			Action: SearchIps,
+		},
+		{
+			Name: "txt",
+			Usage: "Search DNS TXT records",
+			Flags: []cli.Flag{
+				&cli.StringFlag{
+					Name: "domain",
+					Aliases: []string{"d"},
+					Usage: "Specify the domain name for TXT search",
+					Required: true,
+				},
+			},
+			Action: SearchDNSTxt,
 		},
 		{
 			Name: "servers",
