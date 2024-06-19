@@ -1,9 +1,9 @@
 package main
 
 import (
-	"webinspect/app"
 	"log"
 	"os"
+	"webinspect/app"
 )
 
 func main() {

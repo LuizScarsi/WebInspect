@@ -9,60 +9,60 @@ func Generate() *cli.App {
 	app := cli.NewApp()
 	app.Name = "WebInspect"
 	app.Usage = "Tool that provides informations about websites"
-	
+
 	app.Commands = []*cli.Command{
 		{
-			Name: "ip",
+			Name:  "ip",
 			Usage: "Search IP address",
 			Flags: []cli.Flag{
 				&cli.StringFlag{
-					Name: "host",
-					Aliases: []string{"n"},
-					Usage: "Specify the host for IP search",
+					Name:     "host",
+					Aliases:  []string{"n"},
+					Usage:    "Specify the host for IP search",
 					Required: true,
 				},
 			},
 			Action: SearchIps,
 		},
 		{
-			Name: "txt",
+			Name:  "txt",
 			Usage: "Search DNS TXT records",
 			Flags: []cli.Flag{
 				&cli.StringFlag{
-					Name: "domain",
-					Aliases: []string{"d"},
-					Usage: "Specify the domain name for TXT search",
+					Name:     "domain",
+					Aliases:  []string{"d"},
+					Usage:    "Specify the domain name for TXT search",
 					Required: true,
 				},
 			},
 			Action: SearchDNSTxt,
 		},
 		{
-			Name: "servers",
+			Name:  "servers",
 			Usage: "Search server names",
 			Flags: []cli.Flag{
 				&cli.StringFlag{
-					Name: "domain",
-					Aliases: []string{"d"},
-					Usage: "Specify the domain name for server name search",
+					Name:     "domain",
+					Aliases:  []string{"d"},
+					Usage:    "Specify the domain name for server name search",
 					Required: true,
 				},
 			},
 			Action: SearchServers,
 		},
 		{
-			Name: "health",
+			Name:  "health",
 			Usage: "Checks the server health",
 			Flags: []cli.Flag{
 				&cli.StringFlag{
-					Name: "port",
-					Usage: "Specify port to be checked",
+					Name:    "port",
+					Usage:   "Specify port to be checked",
 					Aliases: []string{"p"},
 				},
 				&cli.StringFlag{
-					Name: "domain",
-					Aliases: []string{"d"},
-					Usage: "Specify the domain name for health check",
+					Name:     "domain",
+					Aliases:  []string{"d"},
+					Usage:    "Specify the domain name for health check",
 					Required: true,
 				},
 			},
